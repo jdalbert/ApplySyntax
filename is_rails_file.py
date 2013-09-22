@@ -19,7 +19,7 @@ def is_rails_file(file_name):
     # the existence of config/routes.rb. If it's found, the assumption is made that it's
     # a Rails app.
     while path != '':
-        if os.path.exists(os.path.join(path, 'config', 'routes.rb')):
+        if os.path.exists(os.path.join(path, 'config', 'routes.rb')) or os.path.exists(os.path.join(path, 'config', 'application.rb')):
             result = True
             break
         elif windows and re.match(r"^[A-Za-z]{1}:\\$", path) is not None:
